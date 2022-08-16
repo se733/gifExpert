@@ -11,7 +11,7 @@ export const GifExpert = () => {
 
   return (
       <>
-    <h1>GifExpert</h1>
+    <h1>Nueva aplicación</h1>
 
     
     <AddCategory />
