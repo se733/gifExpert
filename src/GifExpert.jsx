@@ -3,10 +3,11 @@ import { AddCategory } from './components/AddCategory'
 
 export const GifExpert = () => {
 
-    const [categories, setCategories] = useState(['one punch'])
+    const [categories, setCategories] = useState(['One Punch'])
 
-    const onAddCategory = () => {
-        setCategories(['Valorant', ...categories])
+    const onAddCategory = (newCategory) => {
+        if(categories.includes(newCategory) ) return;
+        setCategories([ newCategory, ...categories])
     }
 
   return (
@@ -14,12 +15,18 @@ export const GifExpert = () => {
     <h1>Cambios</h1>
 
     
-    <AddCategory onAddCategory={setCategories}/>
+    <AddCategory onNewCategory={onAddCategory}/>
 
     <ol>
-        {categories.map(category => {
-            return <li key={category}>{category}</li>
-        })}
+        {
+
+            categories.map(category => {
+                <div key={category}>
+                    <h3>{category}</h3>
+                    <li>{category}</li>
+                </div>
+            })
+        }
     </ol>
       </>
     )
